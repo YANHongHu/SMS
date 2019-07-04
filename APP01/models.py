@@ -16,6 +16,9 @@ class StudentInformation(models.Model):
                                  on_delete=models.CASCADE)
     teacher_id = models.ForeignKey(verbose_name="指导教师编号", to='TeacherInformation', to_field='teacher_id',
                                    on_delete=models.CASCADE)
+    curriculum_id = models.ForeignKey(verbose_name="课程设计编号", to='CurriculumInformation', to_field='curriculum_id',
+                                      on_delete=models.CASCADE)
+    curriculum_grade = models.IntegerField(verbose_name="课程设计成绩")
 
 
 # 指导教师表
@@ -67,7 +70,7 @@ class ClassroomInformation(models.Model):
 
 # 课程信息表
 class SubjectInformation(models.Model):
-    subject_id = models.CharField(verbose_name="课程号", max_length=16, primary_key=True)
+    subject_id = models.CharField(verbose_name="课程号", max_length=16)
     subject_name = models.CharField(verbose_name="课程名称", max_length=32)
     start_time = models.DateField(verbose_name="开始时间")
     end_time = models.DateField(verbose_name="结束时间")
@@ -98,3 +101,15 @@ class StudentSubject(models.Model):
                                    on_delete=models.CASCADE)
     times = models.IntegerField(verbose_name="考试次数", default=3)
     score = models.IntegerField(verbose_name="分数")
+
+
+# 课程设计表
+class CurriculumInformation(models.Model):
+    curriculum_id = models.CharField(verbose_name="课程设计号", max_length=16)
+    curriculum_name = models.CharField(verbose_name="课程设计名称", max_length=32)
+    curriculum_content = models.CharField(verbose_name="课程设计题目", max_length=1024)
+    last_number = models.IntegerField(verbose_name="剩余人数", default=4)
+    major_id = models.ForeignKey(verbose_name="专业号", to='MajorInformation', to_field='major_id',
+                                 on_delete=models.CASCADE)
+    employee_id = models.ForeignKey(verbose_name="员工号",to='EmployeeInformation', to_field='employee_id')
+
