@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息系统</title>
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <style>
+.btn-style{
+    background-color: #f5f5f5;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-5"
+                                aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">欢迎进入学生管理系统(学生)</a>
+                        <a style="position: absolute;right: 0;" class="navbar-brand" href="#">你好！吴楠同学!</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <form action="post">
+
+            <!--左侧信息栏 开始-->
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="#" class="list-group-item active">
+                        学生管理
+                    </a>
+                    <a href="#" class="btn-style list-group-item event">查询课程信息</a>
+                    <a href="#" class="list-group-item event">查询成绩</a>
+                    <a href="#" class="list-group-item event">课程设计选择</a>
+                    <a href="#" class="list-group-item event">查询已选择课程设计信息</a>
+                    <a href="#" class="list-group-item event">退出系统</a>
+                </div>
+            </div>
+            <!--信息栏 结束-->
+
+            <!--课程信息列表 开始-->
+            <div class="col-md-8 Course_Info ">
+                <div class="panel panel-default">
+                    <div class="panel-heading">课程信息</div>
+                    <!-- Table -->
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>课程号</th>
+                            <th>课程名称</th>
+                            <th>开始时间</th>
+                            <th>结束时间</th>
+                            <th>教室号</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>数据库</td>
+                            <td>第六周</td>
+                            <td>第十九周</td>
+                            <td rowspan="2">D2110</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!-- Table end -->
+                </div>
+            </div>
+            <!--课程信息列表 结束-->
+
+
+            <!--成绩信息列表 开始-->
+            <div class="col-md-8 Grade_info hide">
+                <p style="margin-top: 10px; display: inline-block">学年：
+                    <select name="" id="">
+                        <option value="hd">2017-2018学年</option>
+                        <option value="cy">2018-2018学年</option>
+                    </select>
+                </p>&nbsp;&nbsp;&nbsp;
+                <p style="margin-top: 10px; display:inline-block;">学期：
+                    <select name="" id="">
+                        <option value="hd">第一学期</option>
+                        <option value="cy">第二学期</option>
+                    </select>
+                </p>
+                <div class="panel panel-default">
+                    <div class="panel-heading">成绩信息</div>
+                    <!-- Table -->
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>课程号</th>
+                            <th>课程名称</th>
+                            <th>课程成绩</th>
+                            <th>代课老师</th>
+                        </tr>
+                        </thead>
+                        <tbody id="list_mes">
+                        <tr>
+                            <td>001</td>
+                            <td>数据库</td>
+                            <td>100</td>
+                            <td>朱欣娟</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!-- Table end -->
+                </div>
+            </div>
+            <!--成绩信息列表 结束-->
+
+            <!--课程设计选择 开始-->
+            <div class="col-md-8 Design_info hide">
+                <div class="panel panel-default">
+                    <div class="panel-heading">课设选择</div>
+                    <!-- Table -->
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>课程设计号</th>
+                            <th>课程设计题目</th>
+                            <th>已选人数</th>
+                            <th>课程设计专业号</th>
+                            <th>选择/取消</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>学生管理系统</td>
+                            <td>50</td>
+                            <td>数字媒体技术</td>
+                            <td rowspan="2"><a onclick="disp_confirm()">选课</a>/<a onclick="no_disp_confirm()">取消</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!-- Table end -->
+                </div>
+            </div>
+            <!--课程设计选择 结束-->
+
+            <!--查询已选课设信息 开始-->
+            <div class="col-md-8 Have_choice_Design hide">
+                <div class="panel panel-default">
+                    <div class="panel-heading">已选课程设计信息</div>
+                    <!-- Table -->
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>课程设计号</th>
+                            <th>课程设计题目</th>
+                            <th>已选人数</th>
+                            <th>课程设计专业号</th>
+                            <th>出题员工号</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>学生管理系统</td>
+                            <td>50</td>
+                            <td>数字媒体技术</td>
+                            <td rowspan="2">438</td>
+                        </tr>
+                        <tr>
+                            <td>001</td>
+                            <td>学生管理系统</td>
+                            <td>50</td>
+                            <td>数字媒体技术</td>
+                            <td rowspan="2">438</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--查询已选课设信息 结束-->
+        </form>
+
+
+        <script src="jquery-3.4.1.js"></script>
+        <script src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            function disp_confirm() {
+                var r = confirm("您确定此课程设计吗？");
+                if (r == true) {
+                    document.write("您已成功选择该课程设计")
+                }
+            }
+
+            function no_disp_confirm() {
+                var p = confirm("您确定此课程设计吗？");
+
+                if (p == true) {
+                    document.write("您已取消该课程设计")
+                }
+            }
+        </script>
+        <script>
+            $('.event').on('click', function () {
+                var info = $(this).text();
+                if (info == "查询课程信息") {
+                    $(".col-md-8").addClass("hide");
+                    $(".Course_Info").removeClass("hide");
+                    window.onload(function requestData() {
+                        $.ajax(
+                            {
+                                url: "www.baidu.com",
+                                type: "post",
+                                dataType: "json",
+                                success: function (data) {
+                                    /*ajax发送请求成功后执行代码*/
+                                    showData(data);
+                                },
+                                error: function (msg) {
+                                    alert("ajax连接异常：" + msg);
+                                }
+                            });
+                    });
+
+                    function showData(data) {
+                        var str = "";  //拼接字符串
+                        for (var i = 0; i < data.length; i++) {
+                            //表格中每一行的数据
+                            str = "<tr>\n" +
+                                "<td>" + data[i].id + "</td>\n" +
+                                "<td>" + data[i].course_name + "</td>\n" +
+                                "<td>" + data[i].start_time + "</td>\n" +
+                                "<td>" + data[i].end_time + "</td>\n" +
+                                "<td rowspan=\"2\">" + data[i].class_position + "</td>\n" +
+                                "</tr>"
+                            $("#list_mes").append(str);
+                        }
+                    }
+
+                } else if (info == "查询成绩") {
+                    $(".col-md-8").addClass("hide");
+                    $(".Grade_info").removeClass("hide");
+                    $(".list-group-item").removeClass("btn-style");
+                    $(this).addClass("btn-style");
+                    window.onload(function requestData() {
+                        $.ajax(
+                            {
+                                url: "www.baidu.com",
+                                type: "post",
+                                dataType: "json",
+                                success: function (data) {
+                                    /*ajax发送请求成功后执行代码*/
+                                    showData(data);
+                                },
+                                error: function (msg) {
+                                    alert("ajax连接异常：" + msg);
+                                }
+                            });
+                    });
+
+                    function showData(data) {
+                        var str = "";  //拼接字符串
+                        for (var i = 0; i < data.length; i++) {
+                            //表格中每一行的数据
+                            str = "<tr>\n" +
+                                "<td>" + data[i].course_id + "</td>\n" +
+                                "<td>" + data[i].course_name + "</td>\n" +
+                                "<td>" + data[i].course_grade + "</td>\n" +
+                                "<td>" + data[i].teacher_name + "</td>\n" +
+                                "</tr>";
+                            $("#list_mes").append(str);
+                        }
+                    }
+                } else if (info == "课程设计选择") {
+                    $(".col-md-8").addClass("hide");
+                    $(".Design_info").removeClass("hide");
+                    $(".list-group-item").removeClass("btn-style");
+                    $(this).addClass("btn-style");
+                    window.onload(function requestData() {
+                        $.ajax(
+                            {
+                                url: "www.baidu.com",
+                                type: "post",
+                                dataType: "json",
+                                success: function (data) {
+                                    /*ajax发送请求成功后执行代码*/
+                                    showData(data);
+                                },
+                                error: function (msg) {
+                                    alert("ajax连接异常：" + msg);
+                                }
+                            });
+                    });
+
+                    function showData(data) {
+                        var str = "";  //拼接字符串
+                        for (var i = 0; i < data.length; i++) {
+                            //表格中每一行的数据
+                            str = "<tr>\n" +
+                                "<td>" + data[i].design_id + "</td>\n" +
+                                "<td>" + data[i].design_name + "</td>\n" +
+                                "<td>" + data[i].have_choice_people + "</td>\n" +
+                                "<td>" + data[i].Professional_id + "</td>\n" +
+                                "<td rowspan=\"2\"><a onclick=\"disp_confirm()\">选课</a>/<a onclick=\"no_disp_confirm()\">取消</a>" +
+                                "</tr>";
+                            $("#list_mes").append(str);
+                        }
+                    }
+                } else if (info == "查询已选择课程设计信息") {
+                    $(".col-md-8").addClass("hide");
+                    $(".Have_choice_Design").removeClass("hide");
+                    $(".list-group-item").removeClass("btn-style");
+                    $(this).addClass("btn-style");
+                    window.onload(function requestData() {
+                        $.ajax(
+                            {
+                                url: "www.baidu.com",
+                                type: "post",
+                                dataType: "json",
+                                success: function (data) {
+                                    /*ajax发送请求成功后执行代码*/
+                                    showData(data);
+                                },
+                                error: function (msg) {
+                                    alert("ajax连接异常：" + msg);
+                                }
+                            });
+                    });
+
+                    function showData(data) {
+                        var str = "";  //拼接字符串
+                        for (var i = 0; i < data.length; i++) {
+                            //表格中每一行的数据
+                            str = "<tr>\n" +
+                                "<td>" + data[i].design_id + "</td>\n" +
+                                "<td>" + data[i].design_name + "</td>\n" +
+                                "<td>" + data[i].have_choice_people + "</td>\n" +
+                                "<td>" + data[i].Professional_id + "</td>\n" +
+                                "<td>" + data[i].teacher_id +"</td>"+
+                                "</tr>";
+                            $("#list_mes").append(str);
+                        }
+                    }
+                } else if (info == "退出系统") {
+                    var r = confirm("您确定退出系统吗？");
+                    if (r == true) {
+                        window.location.href = "首页url";
+                    }
+                }
+            })
+        </script>
+
+
+</body>
+</html>

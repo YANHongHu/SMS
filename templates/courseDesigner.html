@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员系统</title>
+<!--    <link rel="stylesheet" href="css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <style type="text/css">
+        .hide{
+            display: none;
+        }
+/*        .menu{
+            height: 38px;
+            background-color: #eeeeee;
+            line-height: 38px;
+
+        }*/
+        .trdisplay{
+
+        }
+        .trdisplay2{
+
+        }
+        .active{
+            background-color: sandybrown;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-5"
+                                aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>3.7-dist/css/bootstrap.min.css">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">欢迎进入学生选课管理系统(课程设计人)</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item active " a="1">查看教授课程</a>
+                <a href="#" class="list-group-item" a="2">学生课程打分</a>
+                <a href="#" class="list-group-item" a="3">查看学生成绩</a>
+                <a href="#" class="list-group-item" a="4">修改部门成员</a>
+                <a href="#" class="list-group-item" a="5">查看部门情况</a>
+                <a href="#" class="list-group-item" a="6">上传课设项目</a>
+                <a href="#" class="list-group-item" a="7">显示课设选课情况</a>
+                <a href="#" class="list-group-item" a="8">查看课设选课学生</a>
+                <a href="#" class="list-group-item" a="9">显示课设成绩</a>
+                <a href="#" class="list-group-item" a="10">课设打分</a>
+
+            </div>
+        </div>
+        <div class="col-md-8">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Panel heading</div>
+
+            <!-- Table -->
+            <table class="table">
+                 <thead class="thdisplay">
+                <!--课程表-->
+                <tr class="trdisplay" b="1">
+                    <th>课程号</th>
+                    <th>课程名称</th>
+                    <th>开始时间</th>
+                    <th>结束时间</th>
+                    <th>教室号</th>
+                </tr>
+                <!--给学生成绩进行打分-->
+                <tr class="trdisplay hide" b="2">
+                    <th>学生学号</th>
+                    <th>学生姓名</th>
+                    <th>课程号</th>
+                    <th>课程名称</th>
+                    <th>课程打分</th>
+                </tr>
+                <!--学生-课程表-->
+                <tr class="trdisplay hide" b="3">
+                    <th>学生学号</th>
+                    <th>学生姓名</th>
+                    <th>课程名称</th>
+                    <th>学生成绩</th>
+                    <th>考试次数</th>
+                </tr>
+                <!--修改部门成员，增加部门成员，删除部门成员-->
+                <tr class="trdisplay hide" b="4">
+                    <th>增加成员id</th>
+                    <th>删除成员id</th>
+                    <th>提交修改</th>
+
+                </tr>
+                <!--部门表-->
+                <tr class="trdisplay hide" b="5">
+                    <th>部门号</th>
+                    <th>部门名称</th>
+                    <th>负责员工号</th>
+
+                </tr>
+                <!--上传课设项目-->
+                <tr class="trdisplay hide" b="6">
+                    <th>课设专业号</th>
+                    <th>课设id</th>
+                    <th>课设题目</th>
+                    <th>出题员工号</th>
+                    <th>上传</th>
+                </tr>
+                 <tr class="trdisplay hide" b="7">
+                    <th>课设专业号</th>
+                     <th>课设id</th>
+                    <th>课设题目</th>
+                    <th>已选人数</th>
+                </tr>
+                <!--查看课设选课学生-->
+                 <tr class="trdisplay hide" b="8">
+                    <th>学生学号</th>
+                    <th>学生姓名</th>
+                    <th>学生专业</th>
+                </tr>
+
+                <!--显示学生课设成绩-->
+                <tr class="trdisplay hide" b="9">
+                    <th>学生学号</th>
+                    <th>学生姓名</th>
+                    <th>课设题目</th>
+                    <th>课设成绩</th>
+                </tr>
+                <!--给学生课设打分-->
+                <tr class="trdisplay hide" b="10">
+                    <th>学生学号</th>
+                    <th>学生姓名</th>
+                    <th>课设题目</th>
+                    <th>课设打分</th>
+                    <th>提交</th>
+                </tr>
+        </thead>
+    <tbody class="tbdisplay">
+
+    <tr class="trdisplay2" c="1">
+        <td>10001</td>
+        <td>数据库</td>
+<!--        <td rowspan="2">2019-03-13</td>-->
+<!--        <td rowspan="2">2019-06-19</td>-->
+<!--        <td rowspan="2">D-1112</td>-->
+        <td >2019-03-13</td>
+        <td >2019-06-19</td>
+        <td >D-1112</td>
+    </tr>
+
+    <tr class="trdisplay2 hide" c="2">
+        <td>41709060104</td>
+        <td>张光辉</td>
+<!--        <td rowspan="2">10001</td>-->
+<!--        <td rowspan="2">数据库</td>-->
+<!--        <td rowspan="2">60</td>-->
+        <td >10001</td>
+        <td >数据库</td>
+        <td >60</td>
+    </tr>
+    <tr class="trdisplay2 hide" c="3">
+        <td>41709060104</td>
+        <td>张光辉</td>
+        <td>数据库</td>
+        <td>60</td>
+        <td>2</td>
+<!--        <td rowspan="2">戴帽子</td>-->
+    </tr>
+
+    <tr class="trdisplay2 hide" c="4">
+        <td><input type="text" placeholder="增加人员id"></td>
+        <td><input type="text" placeholder="删除人员id"></td>
+        <td><input type="submit" value="提交" id="c4"></td>
+        <td></td>
+<!--        <td rowspan="2">戴帽子</td>-->
+    </tr>
+    <tr class="trdisplay2 hide" c="5">
+        <td>00000</td>
+        <td>教务处</td>
+<!--        <td rowspan="2">00001</td>-->
+        <td >00001</td>
+    </tr>
+    <tr class="trdisplay2 hide" c="6">
+        <td><input type="text" placeholder="专业号"></td>
+        <td><input type="text" placeholder="id"></td>
+        <td ><input type="text" placeholder="题目"></td>
+        <td><input type="text" placeholder="出题人号"></td>
+        <td><input type="submit" value="上传" id="c6"></td>
+
+    </tr>
+    <tr class="trdisplay2 hide" c="7">
+        <td>20000</td>
+        <td>00000</td>
+        <td >学生选课管理系统</td>
+        <td>15</td>
+    </tr>
+    <tr class="trdisplay2 hide" c="8">
+        <td>41709060104</td>
+        <td>张光辉</td>
+        <td >数字媒体技术</td>
+    </tr>
+<!--    <tr class="trdisplay2 hide" c="8">-->
+<!--        <td>41709060104</td>-->
+<!--        <td>张光辉</td>-->
+<!--        <td >数字媒体技术</td>-->
+<!--    </tr>-->
+    <tr class="trdisplay2 hide" c="9">
+        <td>41709060104</td>
+        <td>张光辉</td>
+        <td >学生选课管理系统</td>
+        <td>60</td>
+    </tr>
+
+    <tr class="trdisplay2 hide" c="10">
+        <td>41709060104</td>
+        <td>张光辉</td>
+        <td >学生选课管理系统</td>
+        <td><input type="text" placeholder="打分"></td>
+        <td><input type="submit" value="提交" id="c10"></td>
+    </tr>
+
+    </tbody>
+            </table>
+        </div>
+            </div>
+    </div>
+</div>
+
+
+<!--<script src="js/bootstrap.min.js"></script>-->
+<script src="jquery-3.4.1.js"></script>
+<script src="../static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script>
+
+    $('#alterdepartment').click(function () {
+        $('#alterDepartment2').removeClass('hide').siblings().children().addClass('hide');
+    });
+    $('.list-group-item').click(function () {
+       $(this).addClass('active') .siblings().removeClass('active');
+       // if($(this).attr('a')!=3)
+       //     $('alterDepartment2').addClass('hide');
+       var target = $(this).attr('a');
+
+       $('.thdisplay').children("[b='"+target+"']").removeClass('hide').siblings().addClass('hide');
+       $('.tbdisplay').children("[c='"+target+"']").removeClass('hide').siblings().addClass('hide');
+
+        // 为一个新加的标签增加一个属性 $(selector).attr(attribute,value)
+        // 使用索引的话，a,b 都不需要存在，只需要使用索引就好
+        // var v=$(this).index();
+        // $('.trdisplay').eq(v).removeClass('hide').siblings().addClass('hide');
+        // $('.trdisplay2').eq(v).removeClass('hide').siblings().addClass('hide');
+
+    });
+
+
+    $('#c4').click(function () {
+        alert("提交成功");
+    });
+    $('#c6').click(function () {
+        alert("上传成功");
+    });
+    $('#c10').click(function () {
+        alert("提交成功");
+    });
+
+
+</script>
+
+
+</body>
+</html>l>

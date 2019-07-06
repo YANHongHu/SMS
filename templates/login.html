@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>账号登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel='stylesheet' type='text/css'/>
+    <!-- Custom CSS -->
+    <link href="../static/bootstrap-3.3.7-dist/css/style.css" rel='stylesheet' type='text/css'/>
+    <link href="../static/css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../static/js/bootstrap.min.js"></script>
+</head>
+<body id="login">
+<div style="text-align: center;font-size: 30px;margin-top: 70px">学生信息管理系统</div>
+<h2 class="form-heading" style="margin-top: 40px">Login</h2>
+<div class="app-cam" style="margin-top: 50px">
+    <form action="/login/" method="post" autocomplete="">
+{#        {% csrf_token %}#}
+        <input id="username" type="text" class="text" name="username" placeholder="请输入您的学号（工号）"
+               onblur="if (this.value == '') {this.value = '请输入您的学号（工号）';}">
+        <input id="password" type="password" id="psw" placeholder="请输入密码" name="password"
+             >
+        <p style="margin-top:0">身份：
+            <input id="identify" name="identify" type="radio" value="student">学生&nbsp;
+            <input id="identify" name="identify" type="radio" value="employee">教师&nbsp;
+            <input id="identify" name="identify" type="radio" value="teacher">辅导员&nbsp;
+            <input id="identify" name="identify" type="radio" value="root">管理员&nbsp;
+        </p>
+        <div class="submit"><input id="login-button" type="submit" value="登录"></div>
+        <ul class="new">
+            <li class="new_left"><p><a href="https://ifeels.cn/yhw/">忘记密码 ?</a></p></li>
+            <div class="clearfix"></div>
+        </ul>
+    </form>
+{#    <iframe name="hidden_frame" id="hidden_frame" style="display: none"></iframe>#}
+</div>
+<div class="copy_layout login">
+    <p>西安工程大学计算机科学学院数字媒体技术数据库课程设计 - make from </p>
+</div>
+{#    <script src="../static/js/jquery-3.4.1.min.js"></script>#}
+{#<script>#}
+{#    $('#hidden_frame').load(function () {#}
+{#        var text = $(this).contents().find("body").text();#}
+{#        console.log(text)#}
+{#        var j = $.parseJSON(text);#}
+{#        console.log(j)#}
+{#    })#}
+{#</script>#}
+</body>
+</html>
